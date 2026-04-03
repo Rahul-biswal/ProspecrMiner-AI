@@ -1,0 +1,39 @@
+services:
+  # ── Backend API (Node.js + Express) ──
+  - type: web
+    name: prospectminer-backend
+    env: node
+    region: oregon
+    plan: starter          # $7/mo — needed for Puppeteer (free tier too limited)
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: OPENAI_API_KEY
+        sync: false        # Set manually in Render dashboard
+      - key: MONGODB_URI
+        sync: false        # Set manually in Render dashboard
+      - key: PORT
+        value: 3001
+
+  # ── Frontend (Static Site) ──
+  - type: web
+    name: prospectminer-frontend
+    env: static
+    region: oregon
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: no-cache
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL
+        sync: false        # Set manually — paste the backend URL here after deploying backend first
