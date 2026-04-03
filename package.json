@@ -1,13 +1,32 @@
 {
   "name": "prospectminer-ai",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Root package for ProspectMiner AI",
+  "main": "backend/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm start --prefix backend",
+    "postinstall": "npm install --prefix backend && npm install --prefix frontend",
+    "dev": "npm run dev --prefix backend"
   },
-  "keywords": [],
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "bullmq": "^5.72.1",
+    "cheerio": "^1.2.0",
+    "cors": "^2.8.6",
+    "csv-writer": "^1.6.0",
+    "dotenv": "^17.4.0",
+    "exceljs": "^4.4.0",
+    "express": "^5.2.1",
+    "ioredis": "^5.10.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.3.3",
+    "openai": "^6.33.0",
+    "puppeteer": "^24.40.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "uuid": "^13.0.0"
+  },
   "author": "",
-  "license": "ISC",
-  "type": "commonjs"
+  "license": "ISC"
 }
+
