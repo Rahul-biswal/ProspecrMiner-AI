@@ -39,7 +39,7 @@ npm run dev
 \`\`\`
 
 ## 🧠 Technical Highlights
-* *(Tip: Add 1-2 sentences here about a specific challenge you faced while building this. For example, how you structured the data flow between the frontend and backend, or a specific security protocol you implemented.)*
+
 
 ---
 *Designed and developed by [Rahul Biswal](https://www.linkedin.com/in/rahulkumarbiswal).*
